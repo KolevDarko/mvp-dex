@@ -16,7 +16,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   const { deploy } = deployments;
   const { deployer } = await getNamedAccounts();
   const chainId = await getChainId();
-  console.log(`Baloons deployer is ${deployer.address}`);
+  console.log(`Baloons deployer is ${deployer}`);
 
   await deploy("Balloons", {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
@@ -53,6 +53,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   await dex.init(ethers.utils.parseEther("5"), {
     value: ethers.utils.parseEther("5"),
     gasLimit: 200000,
+    from: deployer,
   });
 };
 module.exports.tags = ["Balloons", "DEX"];

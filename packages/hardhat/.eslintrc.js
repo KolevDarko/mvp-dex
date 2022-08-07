@@ -19,5 +19,6 @@ module.exports = {
     "prefer-template": "off",
     "no-console": "off",
     "func-names": "off",
+    camelcase: "never",
   },
 };
